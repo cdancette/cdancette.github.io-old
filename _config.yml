@@ -17,7 +17,7 @@ title: Cdancette's blog
 author: cdancette
 description: Cdancette's blog.
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://cdancette.fr" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://cdancette.fr" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 timezone: UTC
 exclude:
