@@ -283,6 +283,7 @@ Un example, on voit que l'agent évite le trou (représenté par un O).
 
 # A venir : Partie 2 : environnement qui change entre chaque partie + réseaux de neurones
 
+Si vous avez aimé cet article, n'hésitez pas à m'envoyer un <a href="mailto:contact@cdancette.fr">mail</a>.
 
 ## Resources (en anglais)
 
