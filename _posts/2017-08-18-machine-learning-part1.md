@@ -7,7 +7,7 @@ title: "Reinforcement learning sur un simple jeu grâce au Q-learning: Partie 1"
 </script>
 Un tutoriel pour apprendre le Q-learning sur un jeu simple. Dans cette première partie, on s'interesse au Q-learning stocké dans un tableau de valeurs. Par la suite, on utilisera des reseaux de neurones pour approximer cette table.
 
-Tous les codes présentés ici peuvent être trouvés sur [github](/https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part1.ipynb).
+Tous les codes présentés ici peuvent être trouvés sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part1.ipynb).
 
 ## Introduction
 
