@@ -5,5 +5,7 @@ main:
     url: /about/
   - title: "Archives"
     url: /archives/
+  - title: "Contact"
+    url: "mailto:contact@cdancette.fr"
   - title: "GitHub"
     url: https://github.com/cdancette

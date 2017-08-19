@@ -47,7 +47,7 @@ gems:
 
 # Build settings
 markdown: kramdown
-excerpt_separator: "<!-- more -->"
+# excerpt_separator: "<!-- more -->"
 
 # Outputting
 permalink: /:year/:month/:day/:title/
