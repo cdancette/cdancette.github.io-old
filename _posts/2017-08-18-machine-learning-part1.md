@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reinforcement learning sur un jeu simple jeu grâce au Q-learning: Partie 1"
+title: "Reinforcement learning sur un jeu simple grâce au Q-learning: Partie 1"
 ---
 
 <script type="text/javascript"
