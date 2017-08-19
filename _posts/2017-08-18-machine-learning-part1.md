@@ -2,6 +2,7 @@
 layout: post
 title: "Reinforcement learning sur un jeu simple jeu grâce au Q-learning: Partie 1"
 ---
+
 <script type="text/javascript"
     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -9,13 +10,11 @@ Un tutoriel pour apprendre le Q-learning sur un jeu simple. Dans cette première
 
 Tous les codes présentés ici peuvent être trouvés sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part1.ipynb).
 
-## Introduction
-
 # Qu'est-ce que le Reinforcement Learning, ou apprentissage par renforcement ?
 
 C'est un type d'algorithme pour apprendre à un agent à maximiser ses gains dans un environnement ou chaque action lui donne une récompense (positive ou négative).
 
-# Le jeu
+# Description du jeu
 
 Il s'agit d'un jeu inspiré par l'environnement [Frozen Lake](https://gym.openai.com/envs/FrozenLake-v0) de gym, librairie créée par OpenAI, destinée à faciliter le travail de reinforcement learning. Ce jeu est aussi connu sous le nom de Grid World.
 
@@ -172,7 +171,7 @@ class Game:
 {% endhighlight %}
 
 
-## Partie 1 : Le terrain fixe.
+## Partie 1 : Un terrain fixe.
 
 Dans ce tutoriel, on va s'intéresser dans un premier temps à un terrain fixe : la position des éléments ne 
 sera pas modifiée entre chaque partie. Notre algorithme pourra alors apprendre la structure du terrain par coeur, 
@@ -182,7 +181,7 @@ Il y a *16 états* possibles dans l'environnement, on les numerotera donc de 0 �
 Une action "impossible" renverra un état identique à l'état précédent.
 
 
-## Q learning avec une table
+# Q learning avec une table
 
 Le Q-learning consiste à déterminer une fonction Q(s, a) qui prend deux paramètres : 
 - s : L'état du système
@@ -193,7 +192,7 @@ Et cette fonction renvoie une valeur, qui est la récompense potentielle que l'o
 Ici, nous aurons un faible nombre d'états et d'actions (16 et 4), donc nous pouvons stocker toutes les valeurs dans un tableau.
 C'est la méthode la plus précise, lorsque la mémoire le permet. Si le nombre d'état / actions devient trop grand, il sera nécessaire d'approximer la fonction, comme on le verra dans une autre partie.
 
-## Algorithme d'apprentissage
+# Algorithme d'apprentissage
 
 L'algorithme nous permettra de remplir ce tableau de Q-values, pour pouvoir déterminer, à chaque état, l'action optimale
 (qui sera en fait la valeur maximale obtenue parmi toutes les actions possibles).
@@ -208,12 +207,10 @@ grâce à cette formule
 C'est cette formule qui constitue le coeur du Q-learning. On va actualiser la valeur de Q(s, a) grâce à la récompense 
 effectivement obtenu depuis l'état s en appliquant l'action a, à laquelle on va ajouter la meilleure récompense qu'on pourra obtenir dans le futur.
 
-# Algorithme d'apprentissage
-
 On implémente ce qu'on vient d'expliquer
 
 {% highlight python %}
-## q learning with table
+# q learning with table
 import numpy as np
 
 states_n = 16
@@ -284,9 +281,10 @@ Un example, on voit que l'agent évite le trou (représenté par un O).
 
 ![Jeu]({{ site.url }}/assets/game1-run.gif) 
 
+# A venir : Partie 2 : environnement qui change entre chaque partie + réseaux de neurones
 
 
-# Resources (en anglais)
+## Resources (en anglais)
 
 - https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0
 - http://outlace.com/rlpart3.html
