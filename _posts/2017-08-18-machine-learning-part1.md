@@ -4,7 +4,7 @@ title: "Reinforcement learning sur un jeu simple jeu grâce au Q-learning: Parti
 ---
 
 <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 Un tutoriel pour apprendre le Q-learning sur un jeu simple. Dans cette première partie, on s'interesse au Q-learning stocké dans un tableau de valeurs. Par la suite, on utilisera des reseaux de neurones pour approximer cette table.
 
