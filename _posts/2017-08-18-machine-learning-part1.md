@@ -7,13 +7,13 @@ title: "Reinforcement learning sur un simple jeu grâce au Q-learning: Partie 1"
 </script>
 Un tutoriel pour apprendre le Q-learning sur un jeu simple. Dans cette première partie, on s'interesse au Q-learning stocké dans un tableau de valeurs. Par la suite, on utilisera des reseaux de neurones pour approximer cette table.
 
-Tous les codes présentés ici peuvent être trouvés sur [github](https://github.com/cdancette/machine-learning-projects/q-learning/part1).
+Tous les codes présentés ici peuvent être trouvés sur [github](/https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part1.ipynb).
 
 ## Introduction
 
 # Qu'est-ce que le Reinforcement Learning, ou apprentissage par renforcement ?
 
-Technique pour apprendre à un agent à maximiser ses gains dans un environnement ou chaque action lui donne une récompense (positive ou négative).
+C'est un type d'algorithme pour apprendre à un agent à maximiser ses gains dans un environnement ou chaque action lui donne une récompense (positive ou négative).
 
 # Le jeu
 
@@ -180,7 +180,6 @@ pour pouvoir déplacer l'agent correctement.
 
 Il y a *16 états* possibles dans l'environnement, on les numerotera donc de 0 à 15, et 4 actions possibles à chaque étape.
 Une action "impossible" renverra un état identique à l'état précédent.
-
 
 
 ## Q learning avec une table
