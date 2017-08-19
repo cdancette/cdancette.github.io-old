@@ -11,9 +11,9 @@ Tous les codes présentés ici peuvent être trouvés sur [github](https://githu
 
 ## Introduction
 
-# Qu'est-ce que le Reinforcement Learning ?
+# Qu'est-ce que le Reinforcement Learning, ou apprentissage par renforcement ?
 
-Technique pour apprendre à un agent à maximiser
+Technique pour apprendre à un agent à maximiser ses gains dans un environnement ou chaque action lui donne une récompense (positive ou négative).
 
 # Le jeu
 
