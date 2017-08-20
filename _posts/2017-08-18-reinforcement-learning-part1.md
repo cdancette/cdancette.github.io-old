@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Reinforcement learning sur un jeu simple grâce au Q-learning: Partie 1"
+keywords: reinforcement learning, jeu, machine learning, réseau, neurone, apprentissage, renforcement
 ---
 
 <script type="text/javascript"
@@ -8,11 +9,17 @@ title: "Reinforcement learning sur un jeu simple grâce au Q-learning: Partie 1"
 </script>
 Un tutoriel pour apprendre le Q-learning sur un jeu simple. Dans cette première partie, on s'interesse au Q-learning stocké dans un tableau de valeurs. Par la suite, on utilisera des reseaux de neurones pour approximer cette table.
 
-Tous les codes présentés ici peuvent être trouvés sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part1.ipynb).
+Tous les codes présentés ici peuvent être trouvés  sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part1.ipynb).
 
 # Qu'est-ce que le Reinforcement Learning, ou apprentissage par renforcement ?
 
 C'est un type d'algorithme pour apprendre à un agent à maximiser ses gains dans un environnement ou chaque action lui donne une récompense (positive ou négative).
+
+# Plan
+
+- Partie 1 : jeu statique, le terrain ne change pas, utilisation d'un tableau de valeurs (sans réseau de neurones).
+- [En cours] Partie 2 : Jeu statique, le terrain ne change pas, utilisation d'un réseau de neurone pour approximer la fonction de valeurs Q.
+- [En cours] Partie 3 : Jeu dynamique, le terrain change à chaque partie : utilisation d'un réseau de neurones.
 
 # Description du jeu
 
