@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Reinforcement learning sur un jeu simple grâce au Q-learning: Partie 1"
-keywords: reinforcement learning, jeu, machine learning, réseau, neurone, apprentissage, renforcement
+title: "[Tutoriel] Reinforcement learning en python sur un jeu simple grâce au Q-learning: Partie 1"
+keywords: reinforcement learning, jeu, machine learning, réseau, neurone, apprentissage, renforcement, tutoriel
 ---
 
 <script type="text/javascript"
