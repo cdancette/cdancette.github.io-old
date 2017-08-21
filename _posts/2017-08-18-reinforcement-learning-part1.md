@@ -263,6 +263,60 @@ game.print()
 {% endhighlight %}
 
 
+# Explications lignes par lignes
+
+{% highlight python %}
+states_n = 16
+actions_n = 4
+Q = np.zeros([states_n, actions_n])
+{% endhighlight %}
+
+On définit le nombre d'états (16), et d'actions pour chaque état (4). Et on construit le tableau 
+de valeur etat / action Q, rempli de 0.
+
+{% highlight python %}
+# Set learning parameters
+lr = .85
+y = .99
+num_episodes = 1000
+{% endhighlight %}
+
+On définit les paramètres de l'apprentissage.
+
+`lr` : learning rate, c'est la vitesse d'apprentissage. Plus il est élevé, plus les nouvelles informations seront 
+importantes par rapport aux anciennes.  À 0, l'agent n'apprend rien, et à 1, il ne retiendra pas les anciennes 
+infos qu'il a apprises. C'est l'idéal si l'environnement est déterministe (ie 1 etat + 1 action = toujours le même état
+et la même récompense). Ici l'environnement n'est pas déterministe, car l'agent peut se tromper de direction. On le place donc à .85 (valeur trouvée par tatonnement).
+
+`y` : facteur d'actualisation (gamma), entre 0 et 1. : détermine l'importance des récompenses futures. Trop élevé (trop proche de 1), il y a risque de divergence.
+
+`num_episodes` : le nombre de parties que l'on va faire. 1000 est largement suffisant ici, comme on peut le voir dans les graphiques plus bas.
+
+{% highlight python %}
+    actions = []
+    s = game.reset()
+    states = [s]
+    cumul_reward = 0
+    d = False
+{% endhighlight %}
+
+Initialisation du jeu
+
+{% highlight python %}
+    Q2 = Q[s,:] + np.random.randn(1, actions_n)*(1. / (i +1))
+    a = np.argmax(Q2)
+{% endhighlight %}
+
+Etape importante : ici, on choisit quelle action on va effectuer pour ce tour. 
+On a une probabilité $${1/(i+1)} $$de faire une action aléatoire (i = 0 au début, donc l'action est forcément aléatoire). 
+Puis cette probabilité décroit au cours du temps. 
+
+{% highlight python %}
+    Q[s, a] = Q[s, a] + lr*(reward + y * np.max(Q[s1,:]) - Q[s, a]) # Fonction de mise à jour de la Q-table
+{% endhighlight %}
+
+On applique la formule du Q-learning.
+
 # Performances 
 
 On peut afficher plusieurs graphiques pour calculer les performances de notre algorithme.
