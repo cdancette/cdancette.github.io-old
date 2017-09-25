@@ -4,4 +4,9 @@ title: "À propos de moi"
 permalink: /about/
 ---
 
-À propos de moi.
+Télecharger [mon CV][1].
+
+Download my [resume][1].
+
+[1]:{{ site.url }}/assets/ResumeCorentinDancette.pdf
+
