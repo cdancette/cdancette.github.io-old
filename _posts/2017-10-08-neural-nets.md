@@ -7,7 +7,6 @@ keywords: machine learning, réseau, neurone, apprentissage, back, tutoriel, art
 <script type="text/javascript"
     src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-
 Une explication simple sur le principe de fonctionement d'un réseau de neurone, outil de machine learning qui permet d'approximer des fonctions.
 
 Le réseau de neurone est une méthode utilisée en machine learning, pour la regression ou la classification de données.
