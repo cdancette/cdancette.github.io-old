@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:odm="http://product.corel.com/CGS/11/cddns/" xml:space="preserve" width="1024px" height="640px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd"
+     viewBox="0 0 1024 640">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str3 {stroke:#000000;stroke-width:3}
+    .str0 {stroke:#000000;stroke-width:5}
+    .str2 {stroke:#000000;stroke-width:13}
+    .str1 {stroke:#000000;stroke-width:16}
+    .fil3 {fill:none}
+    .fil0 {fill:#CCECFF}
+    .fil2 {fill:#CCFFCC}
+    .fil1 {fill:#FFFF99}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer 1">
+  <circle class="fil0 str0" cx="512" cy="37" r="34"/>
+  <circle class="fil0 str0" cx="512" cy="179" r="34"/>
+  <circle class="fil0 str0" cx="512" cy="320" r="34"/>
+  <circle class="fil0 str0" cx="512" cy="461" r="34"/>
+  <circle class="fil0 str0" cx="512" cy="603" r="34"/>
+  <circle class="fil1 str0" cx="840" cy="321" r="34"/>
+  <circle class="fil2 str0" cx="184" cy="229" r="34"/>
+  <circle class="fil2 str0" cx="184" cy="411" r="34"/>
+  <path class="fil3 str1" d="M0 229l106 0"/>
+  <path class="fil3 str2" d="M81 257l28 -28 -28 -28"/>
+  <path class="fil3 str1" d="M0 412l106 0"/>
+  <path class="fil3 str2" d="M81 440l28 -28 -28 -28"/>
+  <path class="fil3 str1" d="M906 320l105 0"/>
+  <path class="fil3 str2" d="M986 348l29 -28 -29 -28"/>
+  <path class="fil3 str3" d="M479 37l-262 192 262 -50"/>
+  <path class="fil3 str3" d="M479 320l-262 -91 262 232"/>
+  <path class="fil3 str3" d="M479 603l-262 -374"/>
+  <path class="fil3 str3" d="M479 37l-262 374 262 -232"/>
+  <path class="fil3 str3" d="M479 320l-262 91 262 50"/>
+  <path class="fil3 str3" d="M479 603l-262 -192"/>
+  <path class="fil3 str3" d="M546 37l261 283 -261 -141"/>
+  <path class="fil3 str3" d="M546 320l261 0 -261 141"/>
+  <path class="fil3 str3" d="M546 603l261 -283"/>
+ </g>
+</svg>

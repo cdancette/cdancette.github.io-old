@@ -47,3 +47,10 @@ $on-laptop:        800px;
 
 // Import partials from the `whiteglass` theme.
 @import "whiteglass";
+
+
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+}
