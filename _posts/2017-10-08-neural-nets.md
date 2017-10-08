@@ -21,7 +21,7 @@ Cette fonction est $$ output = activation(w_1 x1 + w_2  x2 + ... + w_n x_n) $$.
 Les entrées (input) seront fournies par les données, ou bien par les sorties des neurones précédents.
 La sortie (output), est un nombre réel.
 
-![Schéma d'un neurone]({{ site.baseurl }}assets/neuron.png)
+![Schéma d'un neurone]({{ site.baseurl }}/assets/neuron.png)
 
 ## Le réseau
 
@@ -30,7 +30,7 @@ Un réseau est constitué habituellement de couches successives de neurones plac
 Chaque neurone prend son entrée depuis la sortie des neurones de la couche suivante.
 On appelle "fully connected layer" lorsque pour chaque neurone, sa sortie est reliée à tous les neurones de la couche suivante. 
 
-![Réseau de neurone]({{ site.baseurl }}assets/Neural_network.svg)
+![Réseau de neurone]({{ site.baseurl }}/assets/Neural_network.svg)
 
 #### Les fonctions d'activation
 
@@ -43,7 +43,7 @@ La sigmoïde
 $$ sig(x) = \frac{1}{1 + e^{-x})} $$
 
 
-![sigmode]({{ site.baseurl }}assets/sigmoid.svg){: .center-image }
+![sigmode]({{ site.baseurl }}/assets/sigmoid.svg){: .center-image }
 
 La fonction ReLU
 
@@ -52,7 +52,7 @@ $$ relu(x) = max(0, x) $$
 
 En vert sur l'image
 
-![sigmode]({{ site.baseurl }}assets/relu.png){: .center-image }
+![sigmode]({{ site.baseurl }}/assets/relu.png){: .center-image }
 
 
 Ces différentes fonctions peuvent avoir une influence sur la performance du réseau de neurone à généraliser à partir des données qui lui sont fournies.
