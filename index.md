@@ -31,9 +31,9 @@ I studied engineering and computer science at Ecole Centrale Paris
 I'm currently intern at the [CoML team](http://www.lscp.net/persons/dupoux/bootphon/index.html)  in Paris. I'm working on unsupervised learning for words and phoneme detection
 in speech. 
 
-**FlowNet evaluation project, Fall 2017**  
+**Deep learning for optical flow estimation, Fall 2017**  
 As a graduate student at Georgia Tech, I worked on a project to estimate optical flows in a natural environment dataset. 
-I used the FlowNet2 architecture. You can see my code on [github](https://github.com/cdancette/flownet-tools)
+I used the FlowNet2 architecture. You can find my code on [github](https://github.com/cdancette/flownet-tools)
 
 **Software engineering internship, Datadog, Fall 2016**  
 I worked in the data engineering team, managing data pipelines with Spark and Hadoop. 
