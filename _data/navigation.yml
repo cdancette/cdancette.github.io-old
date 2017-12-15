@@ -2,7 +2,9 @@
 # pages in order as they should show up.
 main:
   - title: "About"
-    url: /about/
+    url: /
+  - title: "Blog"
+    url: /blog/
   - title: "Archives"
     url: /archives/
   - title: "Contact"

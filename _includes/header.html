@@ -1,4 +1,4 @@
-<header class="site-header">
+<!-- <header class="site-header">
 
   <div class="wrapper">
 
@@ -18,3 +18,26 @@
   </div>
 
 </header>
+ -->
+
+       <div id="top-bar">
+        <div class="navbar container">
+            <a id="author-name" class="alignable pull-left" href="{{ site.url }}{{ site.baseurl }}">Corentin Dancette - {{page.title}}</a>
+            <ul class="alignable pull-right navbar-ul">
+                {% for x in site.data.navigation.main %}
+                    {% if x.name == "Resume" %}
+                        <li class="alignable pull-left nav-list"><a target="_blank" href="{{ x.url }}">{{ x.title }}</a>
+                    {% else %}
+                        <li class="alignable pull-left nav-list"><a href="{{ x.url }}">{{ x.title }}</a>
+                    {% endif %}
+                    {% if forloop.last == false %}
+                        /
+                    {% endif %}
+                        </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+        <hr>
+        </div>
+
