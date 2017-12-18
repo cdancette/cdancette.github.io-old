@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "[Tutoriel] Reinforcement learning en python sur un jeu simple grâce au Q-learning, Partie 1"
+title: "Reinforcement learning en python sur un jeu simple grâce au Q-learning, Partie 1"
 keywords: reinforcement learning, jeu, machine learning, réseau, neurone, apprentissage, renforcement, tutoriel
+excerpt_separator: "<!-- more -->"
 ---
 
-<script type="text/javascript"
-    src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-Un tutoriel pour apprendre le Q-learning sur un jeu simple. Dans cette première partie, on s'interesse au Q-learning stocké dans un tableau de valeurs. Par la suite, on utilisera des reseaux de neurones pour approximer cette table.
+![Le jeu](/assets/qlearning2/capture.gif) 
 
+Un tutoriel pour apprendre le Q-learning sur un jeu simple. Dans cette première partie, on s'interesse au Q-learning stocké dans un tableau de valeurs. Par la suite, on utilisera des reseaux de neurones pour approximer cette table.
+<!-- more -->
 Tous les codes présentés ici peuvent être trouvés  sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part1.ipynb).
 
 # Qu'est-ce que le Reinforcement Learning, ou apprentissage par renforcement ?
@@ -25,7 +25,7 @@ C'est un type d'algorithme pour apprendre à un agent à maximiser ses gains dan
 
 Il s'agit d'un jeu inspiré par l'environnement [Frozen Lake](https://gym.openai.com/envs/FrozenLake-v0) de gym, librairie créée par OpenAI, destinée à faciliter le travail de reinforcement learning. Ce jeu est aussi connu sous le nom de Grid World.
 
-![Jeu]({{ site.baseurl }}/assets/game.png)
+![Jeu](/assets/game.png)
 
 On dispose d'un agent situé sur une grille. La grille comporte 3 cases particulières : un mur (en gris), un puit (en rouge), et
 une arrivée (en vert). Si l'agent arrive sur le puit ou l'arrivée, le jeu se termine. Le joueur ne peut pas se déplacer sur le mur, et le joueur est récompensé de -1 à chaque fois qu'il arrive sur une case non colorée. 
@@ -209,7 +209,7 @@ Nous commencons avec un tableau vide, de taille 16 x 4 (16 états, 4 actions).
 Puis, nous lançons l'agent, avec des mouvements aléatoires, et à chaque étape, nous pouvons mettre à jour le tableau 
 grâce à cette formule
 
-![Formule]({{ site.baseurl }}/assets/q-formula.svg) **todo simplifier la formule**
+![Formule](/assets/q-formula.svg) **todo simplifier la formule**
 
 C'est cette formule qui constitue le coeur du Q-learning. On va actualiser la valeur de Q(s, a) grâce à la récompense 
 effectivement obtenu depuis l'état s en appliquant l'action a, à laquelle on va ajouter la meilleure récompense qu'on pourra obtenir dans le futur.
@@ -333,14 +333,14 @@ plt.show()
 {% endhighlight %}
 
 
-![Graphique de la reward totale]({{ site.baseurl }}/assets/q-learning-curve-1.png) 
+![Graphique de la reward totale](/assets/q-learning-curve-1.png) 
 
 On voit ainsi que l'on arrive assez rapidement à un maximum. Le score n'est jamais parfait car il y a de l'aléatoire dans le  jeu (l'agent se trompe de direction 2 fois sur 10), ce qui fait qu'il tombe parfois dans le trou.
 
 
 Un example, on voit que l'agent évite le trou (représenté par un O).
 
-![Jeu]({{ site.baseurl }}/assets/game1-run.gif) 
+![Jeu](/assets/game1-run.gif) 
 
 # A venir : Partie 2 : environnement qui change entre chaque partie + réseaux de neurones
 

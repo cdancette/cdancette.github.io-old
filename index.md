@@ -4,7 +4,6 @@ title: Corentin Dancette
 ---
 
 
-
 ## About Me
 
 <img class="profile-picture" src="https://www.gravatar.com/avatar/959b702e57718b9029634cb41772dcef">

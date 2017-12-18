@@ -22,7 +22,9 @@
 
        <div id="top-bar">
         <div class="navbar container">
-            <a id="author-name" class="alignable pull-left" href="{{ site.url }}{{ site.baseurl }}">Corentin Dancette - {{page.title}}</a>
+            <a id="author-name" class="alignable pull-left" href="{{ site.url }}{{ site.baseurl }}">
+              Corentin Dancette - {% if page.layout == "post" %} Blog {% else %} {{ page.title }}{% endif %} 
+            </a>
             <ul class="alignable pull-right navbar-ul">
                 {% for x in site.data.navigation.main %}
                     {% if x.name == "Resume" %}
