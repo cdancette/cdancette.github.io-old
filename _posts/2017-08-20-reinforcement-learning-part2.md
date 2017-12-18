@@ -20,7 +20,7 @@ Vous pouvez retrouver tout le code décrit dans cet article sur [github](https:/
 
 # Le jeu
 
-Identique, voir [Partie 1]({% post_url 2017-08-18-reinforcement-learning-part1 %}) : In terrain est fixé, avec la position des éléments. Puis l'agent doit apprendre comment gagner le maximum de points en se déplaçant sur ce terrain.
+Identique, voir [Partie 1]({% post_url 2017-08-18-reinforcement-learning-part1 %}) : Un terrain est fixé, avec la position des éléments. Puis l'agent doit apprendre comment gagner le maximum de points en se déplaçant sur ce terrain.
 
 # Le réseau de neurone
 
