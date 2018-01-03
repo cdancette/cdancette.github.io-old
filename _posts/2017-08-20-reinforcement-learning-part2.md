@@ -279,3 +279,6 @@ où le terrain peut changer à chaque partie. L'algorithme devra alors apprendre
 à éviter les obstacles, et à trouver le meilleur chemin pour arriver à son objectif.
 
 Cela nous ammenera à modifier la manière dont les données sont encodées, ainsi qu'à de nouveaux concepts comme le *batching* et l'*experience replay*  pour améliorer les résultats.
+
+
+Si vous avez aimé cet article, n'hésitez pas à m'envoyer un <a href="mailto:contact@cdancette.fr">mail</a>.
