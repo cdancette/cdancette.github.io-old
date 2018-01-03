@@ -272,12 +272,10 @@ while not done:
 
 Vous pouvez retrouver tout le code décrit dans cet article sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-blog-part2.ipynb).
 
-
 Nous avons donc appris comment définir un réseau de neurone simple, à l'entrainer, et à l'utiliser sur des nouveaux examples.
 
 Dans une prochaine partie, nous verrons comment utiliser notre algorithme dans un jeu plus compliqué, 
 où le terrain peut changer à chaque partie. L'algorithme devra alors apprendre à généraliser de manière 
 à éviter les obstacles, et à trouver le meilleur chemin pour arriver à son objectif.
 
-Cela nous ammenera à modifier la manière dont les données sont encodées, ainsi qu'à de nouveaux concepts comme le *batching* et l'*experience replay* 
-pour améliorer les résultats.
+Cela nous ammenera à modifier la manière dont les données sont encodées, ainsi qu'à de nouveaux concepts comme le *batching* et l'*experience replay*  pour améliorer les résultats.
