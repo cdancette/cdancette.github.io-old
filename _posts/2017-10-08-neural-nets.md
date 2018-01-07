@@ -42,17 +42,23 @@ $$ sig(x) = \frac{1}{1 + e^{-x}} $$
 
 ![sigmode]({{ site.baseurl }}/assets/sigmoid.svg){: .center-image }
 
-La fonction ReLU
+La fonction ReLU a pour équation
 
 $$ relu(x) = max(0, x) $$
 
 
-En vert sur l'image
-
 ![sigmode]({{ site.baseurl }}/assets/relu.png){: .center-image }
 
-
+Elle est représentée en bleu sur l'image ci-dessus.
 Ces différentes fonctions peuvent avoir une influence sur la performance du réseau de neurone à généraliser à partir des données qui lui sont fournies.
+
+### Pourquoi des fonctions d'activations non linéaires ?
+
+On peut se demander pourquoi un réseau de neurone a-t-il besoin de ces fonctions d'activations non linéaires. C'est précisément cette non linéarité qui donne toute sa puissance au réseau de neurone, et le rend capable d'approximer n'importe quelle fonction continue.
+
+En fait, un réseau de neurone sans ces non linéarités, avec uniquement des combinaisons linéaires, n'a aucune utilité, car il peut être simplifié lui même en une combinaison linéaire. Ajouter des couches n'a aucune influence sur la puissance de représentation du réseau. 
+
+Vous pouvez lire ici [une preuve](http://neuralnetworksanddeeplearning.com/chap4.html) visuelle du fait que les réseaux de neurones sont des approximateurs universels (ils peuvent s'approcher de toute fonction continue).
 
 ## FeedForward
 
