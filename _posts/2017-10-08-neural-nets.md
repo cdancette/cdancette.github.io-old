@@ -82,6 +82,6 @@ Puis on applique l'algorithme de la descente du gradient pour modifier légereme
 
 $$ w  = w + \lambda \delta_L $$
 
-$$\lambda $$ est appelé le learning rate. Plus le learning rate est faible, plus le réseau apprendra lentement. Mais un learning rate trop grand peut empêcher la convergence des poids. En général, on choisit une valeur $$ \lambda \leq 0.1 $$
+$$\lambda $$ est appelé facteur d'apprentissage ou *learning rate*. Plus le learning rate est faible, plus le réseau apprendra lentement. Mais un learning rate trop grand peut empêcher la convergence des poids. En général, on choisit une valeur $$ \lambda \leq 0.1 $$
 
 Pour avoir un détail des calculs, vous pouvez consulter le site suivant : [http://neuralnetworksanddeeplearning.com/chap2.html](http://neuralnetworksanddeeplearning.com/chap2.html)
