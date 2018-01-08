@@ -34,6 +34,8 @@ On appelle "fully connected layer" lorsque pour chaque neurone, sa sortie est re
 
 ![Réseau de neurone]({{ site.baseurl }}/assets/Neural_network.svg)
 
+Il existe d'autres types de couche, ou les neurones ne sont pas nécessairement connectés à tous les neurones de la couche précédentes. Un exemple est le [réseau de neurone convolutif](https://fr.wikipedia.org/wiki/R%C3%A9seau_neuronal_convolutif) (*convolutional neural network*), qui est particulièrement adapté pour le traitement d'images en raison de son architecture. 
+
 #### Les fonctions d'activation
 
 Si on utilise la fonction identité ($$ f(x) = x $$), alors le neurone représentera une simple combinaison linéaire des input, et des poids.
