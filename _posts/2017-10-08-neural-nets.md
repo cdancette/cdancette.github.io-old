@@ -15,8 +15,13 @@ Un neurone est tout simplement une fonction, dotée de paramètres.
 
 Cette fonction est $$ output = activation(w_1 x1 + w_2  x2 + ... + w_n x_n) $$.
 
-Les entrées (input) seront fournies par les données, ou bien par les sorties des neurones précédents.
-La sortie (output), est un nombre réel.
+L'entrée (*input*) est fournies par les données, ou bien par les sorties des neurones précédents. C'est le vecteur $$ (x_1, x_2, .. x_n) $$
+
+Les **poids** du neurone sont les valeurs $$(w_1, w_2, .. w_n)$$. Ce sont les seuls valeurs qui sont propres au réseau de neurone. Lorsque l'on sauvegardera sur le disque notre réseau entrainé, ce seront ces poids qui seront enregistrés. Les poids d'un réseau de neurone, avec son architecture (nombre de couches, nombre de neurones sur chaque couche), le définissent entièrement.
+
+La sortie (*output*), est un nombre réel, donné par la fonction ci-dessus.
+
+Et la fonction d'activation est une fonction non linéaire. Nous verrons plus bas les différentes fonctions d'activation habituellement utilisées.
 
 ![Schéma d'un neurone]({{ site.baseurl }}/assets/neuron.png)
 
