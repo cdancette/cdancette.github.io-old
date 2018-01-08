@@ -35,15 +35,14 @@ This makes our network much faster to train than fully connected neural networks
 
 ### Its architecture captures the image distribution space
 
-Its architecture is a great prior to capture inductive bias of images. 
+Its architecture is a great prior to capture an inductive bias of images that fully connected networks don't : Images are a 2D structure, and pixels have neighbors, which are very related to them. Thus it is very useful to compare pixels in a small zone, but much less to compare two random pixels of an image.
 
-This is because it uses convolutions, which are local operations, which act on neighbor pixels. And patterns on images are also local : if you want to detect a line on the image, you need to see if there is a continuous pattern of pixels of the same color, bordered by a different color. 
+CNN uses convolutions, which are local operations, which act on neighbor pixels. And patterns on images are also local : if you want to detect a line on the image, you need to see if there is a continuous pattern of pixels of the same color, bordered by a different color. 
 
-A great paper about this is [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior) : It uses convolutional neural networks without training, to reconstruct corrupted images in a very impressive manner. The neural network reconstructs the image by minimizing the distance between the wanted image and the output of the network, for a fixed input.
+A great paper that uses this idea is [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior) : It uses convolutional neural networks without training on a dataset, to reconstruct corrupted images in a very impressive manner. The neural network reconstructs the image by minimizing the distance between the wanted image and the output of the network, for a fixed input. It only needs the corrupted image, and doesn't need training before. 
 
 The idea is that the corrupted image needs more information than the original image for its encoding (the corruption adds information), and the neural network, if we stop training fast enough (if we let training for too long, the network will overfit the corrupted information).
 In this experiment, the force of the neural networks comes only from its architecture, and has nothing to do with the backpropagation algorithm, which is often seen as the reason why neural networks are so performant.
-
 
 #### Image resources
 
