@@ -1,17 +1,18 @@
 ---
 layout: post
-title: "Why are convolutional neural networks well suited for computer vision and image processing"
+title: "Why do convolutional neural networks work so well for computer vision ?"
 keywords: machine learning, réseau, neurone, apprentissage, back, tutoriel, artificial neural network
 ---
 
 ## What is a convolutional neural network ?
 
-A convolutional neural network is an artificial neural network which has a specific architecture. Instead of having neurons connected to every neuron / input from the precedent layer, neurons are just going to connect to a few locally connected inputs (neighbor pixels), in a squared zone. 
-You can read the great course [http://cs231n.github.io/convolutional-networks/](http://cs231n.github.io/convolutional-networks/) for more details about convolutional neural networks.
+A convolutional neural network (or CNN) is an artificial neural network which has a specific architecture. Instead of having neurons connected to every neuron / input from the precedent layer, neurons are just connected to a few neighbor pixels, in a squared zone. Each neuron is called a *filter*, and is slid through the image, to each zone. This is called a convolution, hence the name of the network.
 
-These networks work unbelievably well for computer vision tasks like image recognition, or segmentation. I can think of two reasons why they are well suited for this : weight sharing, and image prior.
+You can read the great course [http://cs231n.github.io/convolutional-networks/](http://cs231n.github.io/convolutional-networks/) for more details about CNN.
 
-## Weight sharing : much less connexions.
+These networks work amazingly well for computer vision tasks like image recognition, or segmentation. I can think of two reasons why they are well suited for this : weight sharing, and image prior.
+
+## Weight sharing: Convolutions are much more efficient.
 
 One of the most famous image dataset is [ImageNet](http://image-net.org/). It is constituted of more than 1 million images, and the resolution is around 256x256, which is 65536 pixels. Each pixels has 3 colors, which means 196,608 numbers describe an image.
 
@@ -33,3 +34,7 @@ A great paper about this is [Deep Image Prior](https://dmitryulyanov.github.io/d
 
 The idea is that the corrupted image needs more information than the original image for its encoding (the corruption adds information), and the neural network, if we stop training fast enough (if we let training for too long, the network will overfit the corrupted information).
 In this experiment, the force of the neural networks comes only from its architecture, and has nothing to do with the backpropagation algorithm, which is often seen as the reason why neural networks are so performant.
+
+## Conclusion
+
+Convolutional neural networks are very well suited to image processing due to their architecture. 
