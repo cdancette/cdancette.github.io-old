@@ -13,7 +13,7 @@ Hi! I am a french computer science student, enrolled in Ecole Centrale Paris, Fr
 I'm currently doing my master internship at the [Cognitive Machine Learning team](http://www.lscp.net/persons/dupoux/bootphon/index.html) 
 at Ecole Normale Supérieure, in Paris, as a machine learning research intern.
 
-I'm very interested in machine learning and deep learning, more specifically in robotics and computer vision, and also in speech processing.
+I'm very interested in machine learning and deep learning, more specifically for robotics, computer vision, and speech processing.
 
 ## Education
 
@@ -27,8 +27,9 @@ I studied engineering and computer science at Ecole Centrale Paris
 ## Internships and projects
 
 **Research Internship, CoML, Spring 2018**  
-I'm currently intern at the [CoML team](http://www.lscp.net/persons/dupoux/bootphon/index.html)  in Paris. I'm working on unsupervised learning for words and phoneme detection
-in speech. 
+I'm currently intern at the [CoML team](http://www.lscp.net/persons/dupoux/bootphon/index.html) 
+in Paris. I'm working on unsupervised machine learning for words and phoneme discovery
+in speech data.
 
 **Deep learning for optical flow estimation, Fall 2017**  
 As a graduate student at Georgia Tech, I worked on a project to estimate optical flows in a natural environment dataset. 
