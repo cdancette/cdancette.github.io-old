@@ -13,6 +13,13 @@ Cet article est la suite de [{% post_url 2017-08-18-reinforcement-learning-part1
 Dans cette deuxième partie, nous allons travailler encore sur le même jeu, mais en utilisant un réseau de neurone au lieu d'un tableau de valeurs.
 
 <!-- more -->
+# Plan
+
+- [Partie 1]({% post_url 2017-08-18-reinforcement-learning-part1 %}) : jeu statique, le terrain ne change pas, utilisation d'un tableau de valeurs (sans réseau de neurones).
+- Partie 2 : Jeu statique, le terrain ne change pas, utilisation d'un réseau de neurone pour approximer la fonction de valeurs Q.
+- [En cours] Partie 3 : Jeu dynamique, le terrain change à chaque partie : utilisation d'un réseau de neurones.
+
+
 Ici, nous allons modéliser la fonction de valeurs Q grâce à un réseau de neurones. Cela nous permet de ne pas maintenir un tableau qui contient les valeurs de Q pour chaque état et chaque action, ce qui va s'avérer très utile lorsque nous aurons un grand nombre d'états (comme pour la partie 3, ou le terrain sera modifié à chaque partie).
 
 Vous pouvez retrouver tout le code décrit dans cet article sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-blog-part2.ipynb).
