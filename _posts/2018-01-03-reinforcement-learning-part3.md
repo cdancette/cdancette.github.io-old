@@ -13,7 +13,7 @@ Dans cette troisième partie, nous allons étudier une variante plus complexe du
 
 <!-- more -->
 
-Tous les codes présentés ici peuvent être trouvés  sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-part3.ipynb).
+Tous les codes présentés ici peuvent être trouvés  sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-blog-part3.ipynb).
 
 
 # Le jeu
@@ -39,13 +39,13 @@ Les éléments à indiquer sont : notre position `self.position`, la position de
 Au lieu d'un tableau de taille 16 contenant des 0, avec un 1 pour marquer la position de l'agent, nous avons maintenant 4 tableaux similaires. L'état du jeu sera la concaténation de ces 4 tableaux (obtenu avec `np.reshape`).
 L'état est donc un tableau de taille 4x16 = 64 cases, et il contiendra quatre 1, et les autres éléments seront des 0.
 
-Ici pour encoder les états, nous avons utilisé ce qui est appelé un [One Hot encoder](https://en.wikipedia.org/wiki/One-hot) : Pour chaque élément, il y a 16 possibilités, et on encode cela en utilisant un tableau de 16 cases, en mettant un 1 pour représenter la position de l'élément. Ce n'est pas une représentation très compacte : les 16 cases possibles peuvent être encodées sur 4 bits, il nous suffirait donc de 4 cases dans notre tableau pour encoder la position de chaque élément. Mais le réseau devrait alors apprendre à décoder cet encodage en plus, et aurait donc surement besoin d'un entrainement plus long, ou bien de plus de couches. L'encodage que nous avons choisi ici est extrèmement simple (mais il n'est pas le plus compact possible, toutes les entrées possibles ne sont pas du tout utilisés).
+Ici pour encoder les états, nous avons utilisé ce qui est appelé un [One Hot encoder](https://en.wikipedia.org/wiki/One-hot) : Pour chaque élément, il y a 16 possibilités, et on encode cela en utilisant un tableau de 16 cases, en mettant un 1 pour représenter la position de l'élément, et 0 dans les autres cases. Ce n'est pas une représentation très compacte : les 16 cases possibles peuvent être encodées sur 4 bits, il nous suffirait donc de 4 cases dans notre tableau pour encoder la position de chaque élément. Mais le réseau devrait alors apprendre à décoder cette représentation, ce qui nécessiterait certainement un modèle plus complexe, donc un entrainement plus long, ou bien une architecture plus grosse. L'encodage que nous avons choisi ici est extrèmement simple (mais il n'est pas le plus compact possible, toutes les entrées possibles ne sont pas du tout utilisés), et sera utilisé très facilement par le réseau de neurone.
 
 
 ## Un problème plus complexe
 
 On peut voir que le problème est plus complexe que celui de la partie précédente : au lieu de 4 états différents, encodés dans un tableau de taille 16, on a 16x15x14x13 = 43680 états possibles. Il serait difficile d'appliquer la méthode de la première partie de ce tutoriel (stocker les Q-values dans un tableau). L'utilisation d'un réseau de neurone, comme nous l'avons vu dans la partie 2, nous sera alors très utile ici. Avec un réseau légèrement plus complexe, nous allons pouvoir résoudre ce problème.
-Néanmoins, l'entrainement est plus compliqué ici. Pour garantir la convergence de la méthode classique du Q-learning, l'agent devrait parcourir tous les états un grand nombre de fois. Or ici, notre espace d'état étant très grand, l'agent ne parcourera surement pas la totalité de ces états de nombreuses fois. C'est pour cela que nous attendons de notre réseau de neurone qu'il généralise, pour appliquer ses connaissances acquises à l'entrainement sur des états qu'il n'a jamais rencontré. Il aurait été impossible de généraliser avec un tableau.
+Néanmoins, l'entrainement est plus compliqué ici. Pour garantir la convergence de la méthode classique du Q-learning, l'agent devrait parcourir tous les états un grand nombre de fois. Or ici, notre espace d'état étant très grand, l'agent ne parcourera surement pas la totalité de ces états de nombreuses fois. C'est pour cela que nous attendons de notre réseau de neurone qu'il généralise, pour appliquer ses connaissances acquises à l'entrainement sur des états qu'il n'a jamais rencontré. Il aurait été impossible de généraliser avec la méthode de l'article 1, en utilisant un tableau.
 
 Nous allons évoquer plusieurs concepts très utilisés en machine learning et en reinforcement learning : le principe du *batch*, et celui de l'*experience replay*.
 
@@ -78,9 +78,7 @@ Cela va également nous permettre de voir plusieurs fois des situations passées
 
 ![Un batch](/assets/qlearning3/experiencereplay.png) 
 
-Il existe de nombreuses améliorations possibles. Par exempe,  le *Prioritized experience replay ([article](https://arxiv.org/pdf/1511.05952.pdf) ou [blog](https://jaromiru.com/2016/11/07/lets-make-a-dqn-double-learning-and-prioritized-experience-replay/)[1], ou on voit les situations les plus importantes en priorité, au lieu tirer des exemples au hasard dans la mémoire.
-
-
+Il existe de nombreuses améliorations possibles. Par exempe,  le *Prioritized experience replay ([article](https://arxiv.org/pdf/1511.05952.pdf)&#xA0;[1] ou [blog](https://jaromiru.com/2016/11/07/lets-make-a-dqn-double-learning-and-prioritized-experience-replay/)), ou on voit les situations les plus importantes en priorité, au lieu tirer des exemples au hasard dans la mémoire.
 
 
 # Code
@@ -368,7 +366,7 @@ Si vous avez aimé cet article, n'hésitez pas à m'envoyer un <a href="mailto:c
 
 - [1] [Prioritized Experience Replay, Tom Schaul, John Quan, Ioannis Antonoglou and David Silver,
 Google DeepMind](https://arxiv.org/abs/1511.05952)
-- https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0
-- http://outlace.com/rlpart3.html
-- https://mpatacchiola.github.io/blog/2016/12/09/dissecting-reinforcement-learning.html
-- https://medium.com/@awjuliani/super-simple-reinforcement-learning-tutorial-part-1-fd544fab149
+- [http://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning/](http://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning/)
+- [http://outlace.com/rlpart3.html](http://outlace.com/rlpart3.html)
+- [https://mpatacchiola.github.io/blog/2016/12/09/dissecting-reinforcement-learning.html](https://mpatacchiola.github.io/blog/2016/12/09/dissecting-reinforcement-learning.html)
+- [https://medium.com/@awjuliani/super-simple-reinforcement-learning-tutorial-part-1-fd544fab149](https://medium.com/@awjuliani/super-simple-reinforcement-learning-tutorial-part-1-fd544fab149)
