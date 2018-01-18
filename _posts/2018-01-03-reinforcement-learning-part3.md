@@ -54,6 +54,9 @@ Nous allons évoquer plusieurs concepts très utilisés en machine learning et e
 En machine learning, pour entrainer nos réseaux de neurones, on utilise généralement des *batch* de données. C'est à dire qu'au lieu de ne donner qu'un seul exemple, avec son label, on lui donne à chaque fois un nombre fixe d'exemples (par exemple 10 samples).
 Cela permet à l'algorithme de gradient de choisir une direction qui ne dépendra pas que d'un seul exemple, qui pourrait être trop précis et ne pas améliorer le score global, mais plutôt une direction moyenne, qui sera certainement plus bénéfique au réseau de manière générale.
 
+![Un batch](/assets/qlearning3/batches.png) 
+
+
 Le batching est également utilisé quand le dataset entier ne rentre pas dans la RAM / la mémoire du GPU. Il est alors nécéssaire de diviser le dataset en batches, que l'on va charger en mémoire pour entrainer le réseau, puis décharger. La contrainte est alors que la taille d'un batch ne dépasse pas la taille de la mémoire (c'est surtout un problème en traitement d'image, ou les données ont une taille importante).
 
 Le batching est utilisé avec l'algorithme de *stochastig gradient descent* ou descente de gradiant stochastique, en remplaçant un exemple par un petit nombre d'exemples (ou bien avec d'autres algorithmes dérivés tels que Adam). 
@@ -73,7 +76,11 @@ Cela permet d'éviter un trop grand va-et-vient des poids du réseau. En effet, 
 
 Cela va également nous permettre de voir plusieurs fois des situations passées. Et les exemples trop vieux seront vidés de la mémoire (on limite la taille de la mémoire en nombre d'exemples).
 
-Une amélioration possible  : le *Prioritized experience replay ([article](https://arxiv.org/pdf/1511.05952.pdf) ou [blog](https://jaromiru.com/2016/11/07/lets-make-a-dqn-double-learning-and-prioritized-experience-replay/)[1], ou on voit les situations les plus importantes en priorité.
+![Un batch](/assets/qlearning3/experiencereplay.png) 
+
+Il existe de nombreuses améliorations possibles. Par exempe,  le *Prioritized experience replay ([article](https://arxiv.org/pdf/1511.05952.pdf) ou [blog](https://jaromiru.com/2016/11/07/lets-make-a-dqn-double-learning-and-prioritized-experience-replay/)[1], ou on voit les situations les plus importantes en priorité, au lieu tirer des exemples au hasard dans la mémoire.
+
+
 
 
 # Code
