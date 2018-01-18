@@ -15,6 +15,12 @@ Dans cette troisième partie, nous allons étudier une variante plus complexe du
 
 Tous les codes présentés ici peuvent être trouvés  sur [github](https://github.com/cdancette/machine-learning-projects/blob/master/q-learning/q-learning-blog-part3.ipynb).
 
+# Plan
+
+- [Partie 1]({% post_url 2017-08-18-reinforcement-learning-part1 %}) : jeu statique, le terrain ne change pas, utilisation d'un tableau de valeurs (sans réseau de neurones).
+- [Partie 2]({% post_url 2017-08-20-reinforcement-learning-part2 %}) : Jeu statique, le terrain ne change pas, utilisation d'un réseau de neurone pour approximer la fonction de valeurs Q.
+- Partie 3 : Jeu dynamique, le terrain change à chaque partie : utilisation d'un réseau de neurones.
+
 
 # Le jeu
 

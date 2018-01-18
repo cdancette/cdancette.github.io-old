@@ -19,7 +19,7 @@ C'est un type d'algorithme pour apprendre à un agent à maximiser ses gains dan
 
 - Partie 1 : jeu statique, le terrain ne change pas, utilisation d'un tableau de valeurs (sans réseau de neurones).
 - [Partie 2]({% post_url 2017-08-20-reinforcement-learning-part2 %}) : Jeu statique, le terrain ne change pas, utilisation d'un réseau de neurone pour approximer la fonction de valeurs Q.
-- [En cours] Partie 3 : Jeu dynamique, le terrain change à chaque partie : utilisation d'un réseau de neurones.
+- [Partie 3]({% post_url 2018-01-03-reinforcement-learning-part3 %}) : Jeu dynamique, le terrain change à chaque partie : utilisation d'un réseau de neurones.
 
 # Description du jeu
 
