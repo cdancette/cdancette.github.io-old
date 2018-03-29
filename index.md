@@ -6,8 +6,6 @@ title: Corentin Dancette
 
 ## About Me
 
-<img class="profile-picture" src="https://www.gravatar.com/avatar/959b702e57718b9029634cb41772dcef">
-
 Hi! I am a french computer science student, enrolled in Ecole Centrale Paris, France, and Georgia Institute of Technology, USA.
 
 I'm currently doing my master internship at the [Cognitive Machine Learning team](http://www.lscp.net/persons/dupoux/bootphon/index.html) 
