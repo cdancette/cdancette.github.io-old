@@ -7,7 +7,12 @@ excerpt_separator: "<!-- more -->"
 
 ![car-running](/assets/self-driving-1/car-running.gif)
 
+<!-- 
+TODO
 
+- expliquer le réseau de convolution 
+- quel modèle choisir ? Expliquer les loss ?
+ -->
 Nous allons appliquer un algorithme d'apprentissage supervisé (réseaux de convolution), pour commander la direction d'une voiture dans une simulation 2D: [https://gym.openai.com/envs/CarRacing-v0/](https://gym.openai.com/envs/CarRacing-v0/). Nous allons présenter le fonctionnement d'un réseau de convolution, comment créer le dataset et l'utiliser pour l'entrainement de notre réseau, puis comment utiliser gym pour récupérer la sortie de notre réseau de neurone afin de controler la simulation.
 
 <!-- more -->
@@ -550,6 +555,7 @@ env.render()
 
 **Après le lancement,** il faut contrôler la vitesse de la voiture avec les touches haut et bas du clavier. La direction sera choisie par le réseau de neurone
 
+![car-running](/assets/self-driving-1/car-running.gif)
 
 ## Conclusion
 Notre réseau reconnait les formes pour maintenir la voiture sur la trajectoire voulue. 
