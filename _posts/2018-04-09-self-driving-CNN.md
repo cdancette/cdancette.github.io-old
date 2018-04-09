@@ -559,7 +559,7 @@ env.render()
 
 ## Conclusion
 Notre réseau reconnait les formes pour maintenir la voiture sur la trajectoire voulue. 
-C'est une sorte de classifieur qui indique juste si la voiture est bien placée, trop à droite ou trop à gauche. Nous nous servons alors de ce classifieur 
+C'est une sorte de classifieur qui indique juste si la voiture est bien placée, trop à droite ou trop à gauche. Nous transmettons alors cette commande au simulateur. Tout ceci s'effectue en temps réel.
 
 ## Pour aller plus loin
 
