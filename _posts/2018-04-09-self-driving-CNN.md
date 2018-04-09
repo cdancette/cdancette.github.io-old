@@ -13,13 +13,13 @@ TODO
 - expliquer le réseau de convolution 
 - quel modèle choisir ? Expliquer les loss ?
  -->
-Nous allons appliquer un algorithme d'apprentissage supervisé (réseaux de convolution), pour commander la direction d'une voiture dans une simulation 2D: [https://gym.openai.com/envs/CarRacing-v0/](https://gym.openai.com/envs/CarRacing-v0/). Nous allons présenter le fonctionnement d'un réseau de convolution, comment créer le dataset et l'utiliser pour l'entrainement de notre réseau, puis comment utiliser gym pour récupérer la sortie de notre réseau de neurone afin de controler la simulation.
+Nous allons appliquer un algorithme d'apprentissage supervisé (réseaux de convolution), pour commander la direction d'une voiture dans une simulation 2D: [https://gym.openai.com/envs/CarRacing-v0/](https://gym.openai.com/envs/CarRacing-v0/). Nous allons présenter le fonctionnement d'un réseau de convolution, comment créer le dataset et l'utiliser pour l'entrainement de notre réseau, puis comment utiliser gym pour récupérer la sortie de notre réseau de neurone afin de contrôler la simulation.
 
 <!-- more -->
 
 L'idée générale que nous allons utiliser est celui du classifieur supervisé. Nous allons entrainer un réseau de neurone convolutionel à classifier des images du jeu, selon trois labels : gauche, droite et tout droit. Nous convertirons ensuite ces commandes en instructions pour le simulateur, qui les executera.
 
-Nous allons donc voir toutes les étapes nécessaires : Création du dataset d'entrainement, Apprentissage du réseau de neurone, et utilisation du modèle entrainé pour controller la voiture.
+Nous allons donc voir toutes les étapes nécessaires : Création du dataset d'entrainement, Apprentissage du réseau de neurone, et utilisation du modèle entrainé pour contrôler la voiture.
 
 Tout le code de ce tutoriel est disponible ici : [https://github.com/cdancette/supervised-self-driving](https://github.com/cdancette/supervised-self-driving).
 
@@ -563,14 +563,14 @@ C'est une sorte de classifieur qui indique juste si la voiture est bien placée,
 
 ## Pour aller plus loin
 
-### Controle de l'accéleration
-Le controle de la voiture n'est pas total ici : le réseau controle uniquement l'accéleration latérale (la direction droite / gauche) de la voiture, mais ne controle pas l'accéleration (donc la vitesse).  Le problème est qu'il est impossible de deviner la vitesse de la voiture en regardant une seule image, donc il ne peut pas controller l'accéleration pour maintenir une vitesse convenable.
+### Contrôle de l'accéleration
+Le contrôle de la voiture n'est pas total ici : le réseau contrôle uniquement l'accéleration latérale (la direction droite / gauche) de la voiture, mais ne contrôle pas l'accéleration (donc la vitesse).  Le problème est qu'il est impossible de deviner la vitesse de la voiture en regardant une seule image, donc il ne peut pas contrôler l'accéleration pour maintenir une vitesse convenable.
 
 - utiliser la barre de vitesse qui est sous l'image (celle que l'on a masquée). Mais il faudrait garder masqué la barre de direction, qui induit en erreur le classifieur de direction;
 
 - Donner au réseau plusieurs images successives, au lieu d'une seule. De cette manière, le réseau pourrait déduire la vitesse de la voiture
 
-- Demander au réseau de controller uniquement la vitesse, et non l'accéleration (il faut alors coder un système de rétrocontrole qui va maintenir la vitesse demandée) : cette approche n'est pas vraiment *end-to-end* mais peut être plus simple si on a des données externes correctes sur la vitesse actuelle (on pourrait modifier l'environnement pour les fournir en plus de l'état).
+- Demander au réseau de contrôler uniquement la vitesse, et non l'accéleration (il faut alors coder un système de rétrocontrôle qui va maintenir la vitesse demandée) : cette approche n'est pas vraiment *end-to-end* mais peut être plus simple si on a des données externes correctes sur la vitesse actuelle (on pourrait modifier l'environnement pour les fournir en plus de l'état).
 
 ### Data augmentation
 
