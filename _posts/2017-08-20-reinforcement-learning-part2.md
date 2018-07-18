@@ -16,7 +16,7 @@ Dans cette deuxième partie, nous allons travailler encore sur le même jeu, mai
 # Plan
 
 - [Partie 1]({% post_url 2017-08-18-reinforcement-learning-part1 %}) : jeu statique, le terrain ne change pas, utilisation d'un tableau de valeurs (sans réseau de neurones).
-- Partie 2 : Jeu statique, le terrain ne change pas, utilisation d'un réseau de neurone pour approximer la fonction de valeurs Q.
+- **Partie 2** : Jeu statique, le terrain ne change pas, utilisation d'un réseau de neurone pour approximer la fonction de valeurs Q.
 - [Partie 3]({% post_url 2018-01-03-reinforcement-learning-part3 %}) : Jeu dynamique, le terrain change à chaque partie : utilisation d'un réseau de neurones.
 
 
