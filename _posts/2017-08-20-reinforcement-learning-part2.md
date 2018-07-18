@@ -64,7 +64,7 @@ class Trainer:
             model = load_model("model-" + name)
         else:
             model = Sequential()
-            model.add(Dense(24, input_shape=(self.action_size,), activation='relu'))
+            model.add(Dense(24, input_shape=(self.state_size,), activation='relu'))
             model.add(Dense(24, activation="relu"))
             model.add(Dense(self.action_size, activation='linear'))
             model.compile(loss='mse', optimizer=sgd(lr=self.learning_rate))
