@@ -18,7 +18,6 @@ I'm very interested in machine learning and deep learning, more specifically for
 **Master Student, Georgia Tech**  
 I'm enrolled in a Computer Science master at Georgia Tech, with specialization in machine learning. 
 
-
 **Engineering student, Ecole Centrale Paris**  
 I studied engineering and computer science at Ecole Centrale Paris
 
@@ -37,13 +36,14 @@ I used the FlowNet2 architecture. You can find my code on [github](https://githu
 I worked in the data engineering team, managing data pipelines with Spark and Hadoop. 
 
 
+## Publications
+
+1. Rachid Riad, Corentin Dancette, Julien Karadayi, Neil Zeghidour, Thomas Schatz, and Emmanuel Dupoux. *Sampling strategies in siamese networks for unsupervised speech representation learning*. In Nineteenth Annual Conference of the International Speech Communication Association, Hyderabad, India, September 2018.
+
 <!-- 
 ## Links
 
 ## Publications
-
-1. F.Bar, J.Doe: Effects of having a placeholder of a name
-2. S.Holmes, J.Watson: Consequences of living with a sociopath in London
 
 
 ## Typography
