@@ -38,7 +38,9 @@ I worked in the data engineering team, managing data pipelines with Spark and Ha
 
 ## Publications
 
-1. Rachid Riad, Corentin Dancette, Julien Karadayi, Neil Zeghidour, Thomas Schatz, and Emmanuel Dupoux. *Sampling strategies in siamese networks for unsupervised speech representation learning*. In Nineteenth Annual Conference of the International Speech Communication Association, Hyderabad, India, September 2018.
+1. Rachid Riad, Corentin Dancette, Julien Karadayi, Neil Zeghidour, Thomas Schatz, and Emmanuel Dupoux. "Sampling strategies in siamese networks for unsupervised speech representation learning." *Nineteenth Annual Conference of the International Speech Communication Association, Hyderabad, India, September 2018*.
+
+2. Alexis Thual, Corentin Dancette, Julien Karadayi, Juan Benjumea, Emmanuel Dupoux. "A K-Nearest Neighbors Approach To Unsupervised Spoken Term Discovery." To appear in *2018 IEEE Spoken Language Technology Workshop (SLT 2018).*
 
 <!-- 
 ## Links
