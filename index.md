@@ -8,24 +8,24 @@ title: Corentin Dancette
 
 Hi! I am a french computer science student, enrolled in Ecole Centrale Paris, France, and Georgia Institute of Technology, USA.
 
-I'm currently doing my master internship at the [Cognitive Machine Learning team](http://www.lscp.net/persons/dupoux/bootphon/index.html) 
-at Ecole Normale Supérieure, in Paris, as a machine learning research intern.
+I'm currently at Georgia Tech, for the last semester of my Computer Science MS.
 
-I'm very interested in machine learning and deep learning, more specifically for robotics, computer vision, and speech processing.
+I was previously intern at the [Cognitive Machine Learning team](http://www.lscp.net/persons/dupoux/bootphon/index.html) at Ecole Normale Supérieure, in Paris, as a machine learning research intern.
+
+I'm very interested in machine learning and deep learning, more specifically for robotics, computer vision, and speech processing, and its application for AI research.
 
 ## Education
 
 **Master Student, Georgia Tech**  
-I'm enrolled in a Computer Science master at Georgia Tech, with specialization in machine learning. 
+I'm enrolled in a Computer Science master at Georgia Tech, with specialization in machine learning and interactive intelligence.
 
 **Engineering student, Ecole Centrale Paris**  
-I studied engineering and computer science at Ecole Centrale Paris
+I studied Engineering and Computer Science at Ecole Centrale Paris
 
 ## Internships and projects
 
 **Research Internship, CoML, Spring 2018**  
-I'm currently intern at the [CoML team](http://www.lscp.net/persons/dupoux/bootphon/index.html) 
-in Paris. I'm working on unsupervised machine learning for words and phoneme discovery
+I interned for 6 months at the [CoML team](http://www.lscp.net/persons/dupoux/bootphon/index.html), a research lab in École Normale Supérieure in Paris. I worked on unsupervised machine learning for words and phoneme discovery
 in speech data.
 
 **Deep learning for optical flow estimation, Fall 2017**  
