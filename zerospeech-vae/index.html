@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en"><head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Deep Learning Class Project
+  | Georgia Tech | Fall 2018: CS 4803 / 7643</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+<!-- Le styles -->  
+  <link href="css/bootstrap.css" rel="stylesheet">
+<style>
+body {
+padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+font-size: 1em;
+}
+.vis {
+color: #3366CC;
+}
+.data {
+color: #FF9900;
+}
+
+.container {
+  max-width: 60%;
+}
+
+p {
+  font-size: 1em;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+} 
+
+</style>
+  
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+<div class="page-header">
+
+<!-- Title and Name --> 
+<h2>Zero Resource Challenge: Unsupervised subword modeling with a Variational Auto Encoder</h2> 
+<span style="font-size: 20px; line-height: 1.5em;"><strong>Corentin Dancette</strong></span><br>
+<span style="font-size: 18px; line-height: 1.5em;">Fall 2018 CS 4803 / 7643 Deep Learning: Class Project</span><br>
+<span style="font-size: 18px; line-height: 1.5em;">Georgia Tech</span>
+<hr>
+
+<!-- Goal -->
+<h3>Abstract</h3>
+<p>
+The goal <a href="http://www.zerospeech.com">Zero Resource Speech Challenge</a>[1] is to build speech systems in an unsupervised manner, meaning without textual annotations. The first part of the challenge is unsupervised learning of speech embedding: Constructing embedding for every chunk of the audio signal, that will represent the phonetic content of this audio chunk, and will be independant of the speaker. 
+In this work, I present the a Variational Auto Encoder based architecture for learning those speech embeddings. 
+The results I obtained didn't reach state of the art for neural network based architectures, but results are encouraging for the use of VAE in this context. 
+</p>
+<p>
+The code for the experiments is available here: <a href="https://github.com/cdancette/zerospeech-vae">https://github.com/cdancette/zerospeech-vae</a>. The pytorch framework was used for this work.</p> 
+
+<br><br>
+<!-- Main Illustrative Figure --> 
+<div style="text-align: center;">
+<img style="height: 200px;" alt="" src="images/VAE.png">
+</div>
+
+<br><br>
+<!-- Introduction -->
+<h3>Introduction / Background / Motivation</h3>
+<h4>What did you try to do? What problem did you try to solve? Articulate your objectives using absolutely no jargon.</h4>
+<p>
+Learning invariant speech representations is a current research topic. For each frame of the audio input, we learn to build an embedding (vector representation), that will be dependant on the input's phoneme, and independant of the the other speech properties (such as the speaker, and the prosody). This enables us to build better speech recognition systems, if we can recognize every phoneme, we can deduce the letter that was used at this moment, and deduce which word was used by assembling those letters.
+The main approach for this is supervised learning: use huge datasets composed of both audio and text, and train a speech to text pipeline. 
+We can then extract some speech embedding if we need it, similarly to computer vision.
+<br>Here, we adress the problem of learning representations with very small or inexistant textual resources. This can be useful for languages with no alphabet, or languages with very little speakers, where it is expensive to annotate recordings. Also, this is how new borns learn language: they don't use textual input, only the raw audio. We want to reproduce this behaviour.
+</p>
+<p>In this work, I tried to use a Variational Auto Encoder to build those embeddings of speech signal. This model seems very appropriate here, as it gives us directly an internal compressed representation of the input signal. </p>
+<p>This is a continuation of the work I did on the zerospeech challenge, as a research intern in the Cognitive Machine Learning team [3].</p>
+
+<h4>How is it done today, and what are the limits of current practice?</h4>
+The current best architecture for unsupervised learinng of speech embeddings is based on gaussian mixture models, and clustering [1]. An other common approach is to train a Siamese Neural Network with pairs of similar and dissimilar words as input [2, 3]. Siamese are trained by recieving pairs of similar or dissimilar inputs (ie contain the same phonemes, or different phonemes), and must learn to create an embedding that is the same, or different. Those pairs can be constructed from a lexicon discovered with an unsupervised Spoken Term Discovery algorithm (which is the Track 2 of the Zero Resource challenge). This is a case of semi-supervised learning.
+
+<p>The current approaches are very far from the success rates of supervised methods.</p>
+
+<h4>Who cares? If you are successful, what difference will it make?</h4>
+It will be very useful for languages which don't have massive resources available. On those "low-level" languages, unsupervised learning can help build speech recognition pipelines. It can also be used to preserve disappearing languages, and help linguists annotate those languages before they disappear. Finally, it can be considered as a predictive model of infant language learning. 
+
+<br><br>
+<!-- Approach -->
+<h3>Approach</h3>
+<h4>What did you do exactly? How did you solve the problem? Why did you think it would be successful? Is anything new in your approach?</h4>
+
+<h5>Feature Preparation</h5>
+<p>
+The raw audio signal is a 1D vector, whose length is the duration of the signal times the sampling rate. We cannot use directly this 1D vector, as neural networks have a hard time understanding this representation. What is usually done is convert this 1D signal to a spectrum, using fourier transform. We call these features **filter banks**. Similarly to [2, 3], in our experiments, the raw audio signal is converted to 40 frequency bands, with a window length of 25 ms, and a stride of 10ms (meaning we have an overlap between two consecutive features). The package provided in <a href="https://github.com/bootphon/abnet3">abnet3</a> repository was used to preprocess the raw audio signal to those filter banks features. This package is a siamese neural network developed in the CoML team, for the same task we are adressing here (zero resource speech challenge, track 1).
+</p>
+<p>After extracting the signal, we stack the features 7 by 7 (with a stride of 1). This means each feature gets stacked with the 3 frames before it and the 7 frames after it). Each frame is spaced by 10ms, this means that we will range over about 70ms of signal, which is the lower bound for the duration of a phoneme (they usually range between 50 and 200ms). This means we will certainly have a few frames that will encode the same phoneme. This stacking is the same used by [2, 3]. Using only one frame was shown to be not sufficient to learn speech representations.</p>
+
+<p>Finally, for training, I splitted the training data set into a train set and a validation set. We still have a testing set, that is separate, and is used for evaluation of the final embeddings. The testing set is also provided by the challenge, so we don't need to split it from our data.
+  For the train / validation split, I splitted the audio files into two groups, to get different speakers in the two groups. This avoids overfitting on the speakers of the training set, as the speakers in the final testing set are also differents.
+</p>
+
+<h5>Auto Encoder, loss </h5>
+
+<p>Now, we can feed those filter banks to the neural network. Here, as a model, we use a Variational Auto Encoder. This model, to this date, hasn't been tested in a published paper for the zero resource challenge, so it is a new approach. My code is based on the example provided in the pytorch code, but was widely modified to fit the needs of this work.
+  The setup is simple: feed the filter banks as an input to the variational auto encoder, and train it to create an embedding of smaller size. Then, we can evaluate the embedding using the package provided by the zero speech challenge: <a href="https://github.com/bootphon/zerospeech2017">https://github.com/bootphon/zerospeech2017</a>. 
+</p>
+<p>We need to choose a large number of hyperparameters : the loss we use, the architecture of the VAE, optimiser parameters... I describe in the Experiments section the choices I made, and the parameters I compared. 
+
+<h4>What problems did you anticipate? What problems did you encounter? Did the very first thing you tried work?</h4>
+<p>
+The zerospeech track 1 is a hard problem, I didn't expect to get state of the art results with the first thing I tried. I hoped to match the results obtained by other neural network approaches, or at least provide a new comparison point for the followning research that will try to use VAE or other neural network based models for this problem. 
+</p>
+<p>
+The main problem I expected was to separate the phonetic information and the speaker / prosody information. My hope was that the autoencoder would provide features in which every dimension was independant of the others, in which we could separate speaker information and phonetic information. The variational auto encoder is known to provide such representations.</p>
+<p>A thing we could then do is use a dimensionality reduction algorithm to get rid of the dimensions that don't vary much within speakers, but that vary much across speakers. I didn't get the time to try this, but it could be an interesting thing to try.
+</p>
+<p>I also encountered an overfitting problem, as we will ses below in the training curves, which made me test only small architectures. It would be better to use regularization methods here, that would allow to use more powerfull architectures.
+</p>
+<br>
+<h3>Experiments and Results</h3>
+<p>
+The zerospeech challenge has three training languages and two surprise testing languages. Due to the limitied time available for this project, I trained the autoencoder on only one of the training languages, the mandarin. It is the smallest corpus, which allows for quick training and testing. Being quite small, it can although be a problem, as neural networks tend to need a large amount of training data to train well, and are subject to overfitting.
+</p>
+
+<h4>How did you measure success? What experiments were used? What were the results, both quantitative and qualitative? Did you succeed? Did you fail? Why?</h4>
+
+<h5>ABX error</h5>
+<p>
+  The challenge comes with an evaluation software that measures the quality of the embeddings provided. It measures the ability of the embeddings to discriminate phonemes between them.  The score is the <strong>ABX discriminate</strong>, and is measured as an error rate (lower error is better) [4]. It consists in comparing triplets of phoneme embeddings, called A, B and X, and to ask if X is closer to A or to B. If our embeddings are able to get the right answer, they have a good discriminability for triplet A, B and X. Taking the average over an entier dataset of triplets gives us the ABX score.
+</p>
+<h5>My experiments</h5>
+<p>
+  I tried to experiment three parameters: The loss (binary cross entropy or mean squared error), the embedding size (in siamese network works, an embedding size of 100 is used, so I started with this number), and compared with an embedding size of 50. The average number of phonemes is around 50, so this seems like a good lower bound for or embedding size 
+  (see <a href="https://en.wikipedia.org/wiki/Phoneme#Numbers_of_phonemes_in_different_languages">https://en.wikipedia.org/wiki/Phoneme#Numbers_of_phonemes_in_different_languages</a>). I fixed the hidden layers size to 400, this would be another parameter to tweak.
+</p>
+<p>The last parameter I played with was then number of hidden layers. I tried 1 and 2, as overfitting started to happen with 2 layers. 
+  It would be good to test mode regularization techniques, to be able to increase the model size. This problem also might not happen with other languages of the zerospeech challenge, as their datasets are much bigger.
+</p>
+<p>
+<!-- Main Results Figure --> 
+<div style="text-align: center;">
+  <img style="width: 75%;" alt="" src="images/table_results.png"><br>
+  Table of results. The last two columns are the ABX error rates with and across speakers.
+</div>
+</p>
+<br><br>
+<p>The respective training curves for those experiments are the following:</p>
+<div style="text-align: center;">
+  <img style="width: 30%;" alt="" src="images/bce-1-100.png">
+  <img style="width: 30%;" alt="" src="images/mse-1-100.png">
+  <img style="width: 30%;" alt="" src="images/bce-2-100.png">
+  <img style="width: 30%;" alt="" src="images/mse-2-100.png">
+  <img style="width: 30%;" alt="" src="images/bce-2-50.png">
+  <img style="width: 30%;" alt="" src="images/mse-2-50.png"><br>
+</div>
+
+<h5>Number of hidden layers</h5>
+  <p>
+First, we can compare the number of layers, with the embedding size of 100 fixed: 
+</p>
+<br>
+<div style="text-align: center;">
+  <img style="width: 50% ; border: 1px solid lightgray;" alt="" src="images/chart_hidden_layers.png"><br>
+</div>
+</p>
+<br>
+<p>The first thing we can notice is that the within speaker is always lower than the across speakers. This is expected, because it is harder to discriminate between phonemes of two different speakers than to discriminate phonemes from the same speaker. In the within speakers, the three phonemes A, B and X are from the same speaker s. In the across speaker, X is from a different speaker as A and B.
+  Nothing unexpected here.
+
+<br>
+<p>
+  The next thing we can notice is that for a given hidden layer size, <strong>binary cross entropy loss</strong> always outperforms <strong> mean squared error loss</strong>. This is a common result for variational auto encoder. This can work because we normalized our inputs to be in the 0-1 range, and the output goes through a sigmoid layer (for the BCE loss only).
+</p>
+<p>
+  Finally, we can notice that the 2-hidden layers networks outperform the 1-hidden layer networks for binary cross entropy, but becomes actually worse for mean squared error loss. This is a weird behaviour, which we might want to explore more.
+</p>
+<p>
+  Overall, the best results comes with binary cross entropy, with 2 hidden layers.
+</p>
+<h5>Size of embeddings</h5>
+
+<p>Now, we can compare the ABX error for various embedding sizes, with a fixed 2-hidden layers.</p>
+<br>
+<div style="text-align: center;">
+  <img style="width: 50% ; border: 1px solid lightgray;" alt="" src="images/chart_embedding_size.png"><br>
+</div>
+<br><br>
+
+<p>We see that BCE is still better than MSE here, no surprises.</p>
+<p>What is surprising is that an embedding size of 50 gives actually better results than the embedding size of 100.
+  This could be explained by the lack of training data: an embedding of size 100 could overfit more quickly our dataset. A smaller embedding could act like a regularization. More experiments are needed to this hypothesis.
+</p>
+
+<h5>Best result overall</h5>
+<p>
+  As we can see in the table above, or in the graphs, the best result overall was reached with binary cross entropy loss, 2 hidden layers, and an embedding size of 50. The results for the ABX errors are: <strong>14.99% within speakers</strong>, and <strong>20.44% across speakers</strong>.
+</p>
+<br>
+
+<h4>Comparison with state of the art results</h4>
+
+<p>The results for the zerospeech challenge are available at <a href="http://sapience.dec.ens.fr/bootphon/2017/page_5.html">http://sapience.dec.ens.fr/bootphon/2017/page_5.html</a>.</p>
+
+<p>Here is the comparison with the baseline (MFCC) and with the best unsupervised results (based on gaussian mixture models).
+<br><br>
+ <div style="text-align: center; margin: auto; max-width: 50%">
+  <table style="width:100%">
+  <tr>
+    <th>Method</th> <th>ABX within</th> <th>ABX across</th>
+  </tr>
+  <tr>
+    <td>Ours</td> <td>14.99</td> <td>20.44</td>
+  </tr>
+  <tr>
+    <td>Baseline MFCC</td> <td> 11.5</td> <td> 21.3</td>
+  </tr>
+  <tr>
+    <td>Chen et al.<br>
+Northwestern Polytechnical University</td> <td>8.5</td> <td>10.8</td>
+  </tr>
+</table> 
+</div>
+<br><br>
+<p>We are still far from the best unsupervised result. A encouraging result is that we beat the baseline for across-speakers ABX error. With more experiments, we could certainly bring those results under the baseline for both within and across speakers.</p>
+<br>
+<h4>Conclusion and Future work</h4>
+<p>
+  This work opens many questions, that would need further experiments. The first one is to try more architectures and hyperparameters. Only a few parameters were tested here, due to the limited time available for this project. 
+</p>
+<p>Regularization methods should also help here, as we see that overfitting is happening in our training curves, in some cases.
+  This would then allow us to use bigger networks, and certainly get better generalization. 
+<p>
+  Also, as discussed previously, the VAE here is not explicitely trained to extract only phonetic information from the audio. It will   extract all the information it can to reconstruct the original audio signal. 
+  It would be good to check that the dimensions of the embeddings are independant, and check if some of them describe the speaker properties, and some the phonetic properties of the input signal. We could then try to get rid of the speaker-related dimensions and keep only the ones we care about, using a dimensionality reduction algorithm like PCA.
+</p>
+<p>Another idea would be to add a recurrent layer in the architecture. Speech is a sequential data, unlike image, so adding recurrence could help us build better embeddings.</p>
+
+<br>
+<h4>References</h4>
+
+<p>
+  [1] Dunbar, E., Cao, X., Benjumea, J., Karadayi, J., Bernard, M., Besacier, L., Miró, X.A., & Dupoux, E. (2015). The zero resource speech challenge 2017. 2017 IEEE Automatic Speech Recognition and Understanding Workshop (ASRU), 323-330.
+</p>
+<p>
+  [2] Synnaeve, G., Schatz, T., & Dupoux, E. (2014). Phonetics embedding learning with side information. 2014 IEEE Spoken Language Technology Workshop (SLT), 106-111.
+</p>
+<p>
+  [3] Riad, R., Dancette, C., Karadayi, J., Zeghidour, N., Schatz, T., & Dupoux, E. (2018). Sampling Strategies in Siamese Networks for Unsupervised Speech Representation Learning. Interspeech 2018.</p>
+<p>
+  [4] Schatz,  V.  Peddinti,  F.  Bach,  A.  Jansen,  H.  Hermansky,  and E.  Dupoux,  “Evaluating  speech  features  with  the  minimal-pair abx task:  Analysis of the classical mfc/plp pipeline,” in INTERSPEECH  2013:   14th  Annual  Conference  of  the  International Speech Communication Association, 2013, pp. 1–5.
+</p>
+<p>
+
+</p>
+
+
+  <hr>
+  <footer> 
+  <p>© Corentin Dancette</p>
+  </footer>
+</div>
+</div>
+
+<br><br>
+
+</body></html>
