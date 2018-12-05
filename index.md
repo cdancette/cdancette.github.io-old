@@ -28,6 +28,9 @@ I studied Engineering and Computer Science at Ecole Centrale Paris
 I interned for 6 months at the [CoML team](http://www.lscp.net/persons/dupoux/bootphon/index.html), a research lab in École Normale Supérieure in Paris. I worked on unsupervised machine learning for words and phoneme discovery
 in speech data.
 
+**Study of the Variational Auto Encoder for speech subword modeling**
+For a class project, at Georgia Tech, I studied a variational Auto Encoder architecture for the Zerospeech Challenge, Track 1: unsupervised subword modeling. You can find my work here: [https://cdancette.fr/zerospeech-vae/](https://cdancette.fr/zerospeech-vae/)
+
 **Deep learning for optical flow estimation, Fall 2017**  
 As a graduate student at Georgia Tech, I worked on a project to estimate optical flows in a natural environment dataset. 
 I used the FlowNet2 architecture. You can find my code on [github](https://github.com/cdancette/flownet-tools)
