@@ -28,6 +28,8 @@ I studied Engineering and Computer Science at Ecole Centrale Paris
 I interned for 6 months at the [CoML team](http://www.lscp.net/persons/dupoux/bootphon/index.html), a research lab in École Normale Supérieure in Paris. I worked on unsupervised machine learning for words and phoneme discovery
 in speech data.
 
+I contributed to the package ABNet3, a siamese neural network for speech embedding. The package is available on github: [https://github.com/bootphon/abnet3](https://github.com/bootphon/abnet3)
+
 **Study of the Variational Auto Encoder for speech subword modeling**  
 For a class project, at Georgia Tech, I studied a variational Auto Encoder architecture for the Zerospeech Challenge, Track 1: unsupervised subword modeling. You can find my work here: [https://cdancette.fr/zerospeech-vae/](https://cdancette.fr/zerospeech-vae/)
 
