@@ -16,11 +16,11 @@ I'm very interested in machine learning and deep learning, more specifically for
 
 ## Education
 
-**Master Student, Georgia Tech**  
+**Master Student, Georgia Institute of Technology, USA**
 I'm enrolled in a Computer Science master at Georgia Tech, with specialization in machine learning and interactive intelligence.
 
-**Engineering student, Ecole Centrale Paris**  
-I studied Engineering and Computer Science at Ecole Centrale Paris
+**Engineering student, Ecole Centrale Paris, France**
+I studied Engineering and Computer Science at Ecole Centrale Paris.
 
 ## Internships and projects
 
