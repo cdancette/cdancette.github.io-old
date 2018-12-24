@@ -6,9 +6,9 @@ title: Corentin Dancette
 
 ## About Me
 
-Hi! I am a french computer science student, enrolled in Ecole Centrale Paris, France, and Georgia Institute of Technology, USA.
+<img class="profile-picture" src="assets/profile.jpg">
 
-I'm currently at Georgia Tech, for the last semester of my Computer Science MS.
+Hi! I am a french computer science student, I gratuated from Ecole Centrale Paris, France, and Georgia Institute of Technology, USA.
 
 I was previously intern at the [Cognitive Machine Learning team](http://www.lscp.net/persons/dupoux/bootphon/index.html) at Ecole Normale Supérieure, in Paris, as a machine learning research intern.
 
