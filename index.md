@@ -10,6 +10,8 @@ title: Corentin Dancette
 
 Hi! I am a french computer science student, I gratuated from Ecole Centrale Paris, France, and Georgia Institute of Technology, USA.
 
+I am currently doing a Pre-Phd program at the [MLIA](https://mlia.lip6.fr/) team, at the LIP6 lab, in Sorbone Université, Paris. I am mainly working on visual reasoning tasks, such as Visual Question Answering. 
+
 I was previously intern at the [Cognitive Machine Learning team](http://www.lscp.net/persons/dupoux/bootphon/index.html) at Ecole Normale Supérieure, in Paris, as a machine learning research intern.
 
 I'm very interested in machine learning and deep learning, more specifically for robotics, computer vision, and speech processing, and its application for AI research.
