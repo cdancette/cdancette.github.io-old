@@ -235,6 +235,8 @@ class Trainer:
         action =  np.argmax(act_values[0])  
         return action
 
+    def remember(self, state, action, reward, next_state, done):
+        self.memory.append([state, action, reward, next_state, done])
 
     def replay(self, batch_size):
         batch_size = min(batch_size, len(self.memory))
